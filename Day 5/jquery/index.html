@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Jquery</title>
+    <style>
+        .setbg {
+            background-color: aqua;
+            color: brown;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Basic JQuery</h1>
+    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa facere dolores a animi accusantium tempore. Suscipit delectus commodi sequi ad dolor veritatis officia hic dolorem? Veritatis rem, vero consequatur commodi exercitationem mollitia voluptatum architecto voluptate iste obcaecati voluptates recusandae beatae dolorem veniam inventore officiis animi sit fugit harum impedit. Magnam!</p>
+    <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus deserunt ab sunt consectetur, nihil, iure repellendus earum quaerat voluptatibus tempora odit illum aut totam molestias molestiae officiis autem illo culpa libero temporibus quia reprehenderit? Sint at eveniet incidunt soluta illo.</p>
+    <span class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus deserunt ab sunt consectetur, nihil, iure repellendus earum quaerat voluptatibus tempora odit illum aut totam molestias molestiae officiis autem illo culpa libero temporibus quia reprehenderit? Sint at eveniet incidunt soluta illo.</span>
+    
+    <article>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, sint obcaecati eum voluptatum, iste modi voluptate minus laborum autem atque illum, voluptatibus fugit amet magni nesciunt repudiandae quo eaque blanditiis quisquam illo soluta est! Minus a ullam sed error beatae.</article>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            // การเข้าถึง tag h1
+            $("h1").css("color", "red")
+            // การเข้าถึง tag p ที่มี id = p1
+            $("p#p1").css("background-color", "yellow")
+            // การเข้าถึง tag p ที่มี class = p2
+            $("p.p2").css("background-color", "lightblue")
+            $("span.p2").css("background-color", "lightgreen")
+
+            // การเรียกใช้ class css
+            $("article").addClass("setbg")
+            // การลบ class css ออก
+            $("article").removeClass("setbg")
+
+            // การสลับการทำงาน ระหว่าง add class กับ remove class
+            $("article").toggleClass("setbg")
+        })
+    </script>
+</body>
+</html>
