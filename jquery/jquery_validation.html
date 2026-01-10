@@ -9,9 +9,16 @@
             color: red;
             font-size: 14px;
         }
+
+        #register {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
+
+    <button id="showpop">Show Form Register</button>
 
     <form action="jquery_validation.html" id="register">
         <div>
@@ -38,6 +45,13 @@
     <script src="jquery-3.7.1.min.js"></script>
     <script src="jQuery_validate/jquery.validate.min.js"></script>
     <script>
+
+        $(function(){
+            $("#showpop").click(function(){
+                $("form#register").show();
+            })
+        })
+
         $("form#register").validate({
             rules: {
                 fullname: {
@@ -69,7 +83,34 @@
                 //error.appendTo(".help-block")
             },
             submitHandler: function(form) {
+                // $.post("testpost.html", function(data){
+                //     alert(data)
+                // })
+                // $.get("testpost.html", function(data){
+                //     alert(data)
+                // })
 
+                //รับค่าจาก form
+                let name = $("#fullname").val();
+                let email = $("#email").val();
+                let tel = $("#tel").val();
+
+                alert(name + email + tel);
+
+                $.ajax({
+                    type: "get",
+                    url: "testpost.html",
+                    data: {name: name, email: email, tel: tel},
+                    success: function (response) {
+                        alert(response)
+                    }
+                });
+
+                //Reset Form
+                $("form#register")[0].reset();
+
+                //Focus Cursor
+                $("#fullname").focus();
             }
         })
     </script>

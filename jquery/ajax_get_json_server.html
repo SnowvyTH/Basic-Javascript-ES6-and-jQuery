@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get JSON Server</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="display-3">Product Data</h1>
+        <p class="lead">Product Data List</p>
+    </div>
+
+    <div
+        class="container"
+    >
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-primary"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            // โหลดข้อมูลจากแหล่งภายนอก (domain อื่น)
+            $.getJSON("https://www.itgenius.co.th/sandbox_api/ministockapi/public/api/products", function(result){
+                //console.log(result);
+                //loop ข้อมูล
+                let trHTML = ""
+                $.each(result, function(index, item){
+                    trHTML += `<tr>
+                        <td>${item.id}</td>
+                        <td>${item.product_name}</td>
+                        <td>${item.product_barcode}</td>
+                        <td>${item.product_qty}</td> 
+                        <td>${item.product_price}</td>
+                        <td>${item.product_date}</td>
+                    </tr>
+                    `
+                })
+                $("table tbody").append(trHTML);
+            })
+        })
+    </script>
+</body>
+</html>
